@@ -10,13 +10,15 @@
     FunctionsToExport = @(
         'Get-FileTree',
         'Get-FolderTree',
+        'Get-PathFolderTree',
         'Get-PoshGreeting'
     )
     CmdletsToExport = @()
     VariablesToExport = '*'
     AliasesToExport = @(
         'Show-FileTree',
-        'Show-FolderTree'
+        'Show-FolderTree',
+        'Show-PathFolderTree'
     )
     PrivateData = @{
         PSData = @{

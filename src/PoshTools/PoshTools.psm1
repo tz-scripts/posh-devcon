@@ -17,10 +17,12 @@ $publicFunctions = if (Test-Path $publicPath) {
 
 Set-Alias -Name Show-FolderTree -Value Get-FolderTree
 Set-Alias -Name Show-FileTree -Value Get-FileTree
+Set-Alias -Name Show-PathFolderTree -Value Get-PathFolderTree
 
 $publicAliases = @(
     'Show-FolderTree',
-    'Show-FileTree'
+    'Show-FileTree',
+    'Show-PathFolderTree'
 )
 
 Export-ModuleMember -Function $publicFunctions -Alias $publicAliases
