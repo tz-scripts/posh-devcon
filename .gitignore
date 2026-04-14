@@ -1,0 +1,11 @@
+.DS_Store
+.devcontainer/.cache/
+.pwsh/
+.vscode/settings.json
+coverage.xml
+testResults.xml
+artifacts/
+out/
+*.nupkg
+*.log
+

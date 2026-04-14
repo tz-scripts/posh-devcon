@@ -1,0 +1,25 @@
+{
+    "name": "posh-tools",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "powershell.powerShellDefaultVersion": "PowerShell (Core)",
+                "powershell.scriptAnalysis.enable": true,
+                "editor.formatOnSave": true,
+                "files.trimTrailingWhitespace": true
+            },
+            "extensions": [
+                "ms-vscode.powershell",
+                "github.vscode-github-actions",
+                "EditorConfig.EditorConfig"
+            ]
+        }
+    },
+    "postCreateCommand": "pwsh -NoLogo -NoProfile -File ./tools/Install-Dependencies.ps1",
+    "remoteUser": "vscode"
+}
+
