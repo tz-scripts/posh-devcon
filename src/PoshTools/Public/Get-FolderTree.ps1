@@ -10,7 +10,7 @@ function Get-FolderTree {
 
         [Parameter()]
         [ValidateSet('Ascii', 'Unicode')]
-        [string] $Format = 'Ascii'
+        [string] $Format = 'Unicode'
     )
 
     Assert-DirectoryPath -Path $Path

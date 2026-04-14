@@ -20,17 +20,17 @@ Describe 'Get-FileTree' {
         Remove-Item -LiteralPath $treeRoot -Recurse -Force
     }
 
-    It 'lists folders and files' {
+    It 'lists folders and files using unicode by default' {
         $result = Get-FileTree -Path $treeRoot -Depth 2
 
         $result | Should -Be @(
             (Split-Path -Leaf $treeRoot)
-            '+-- alpha'
-            '|   +-- inner'
-            '|   \\-- note.txt'
-            '+-- beta'
-            '+-- aardvark.log'
-            '\\-- zulu.log'
+            '├── alpha'
+            '│   ├── inner'
+            '│   └── note.txt'
+            '├── beta'
+            '├── aardvark.log'
+            '└── zulu.log'
         )
     }
 
@@ -39,10 +39,10 @@ Describe 'Get-FileTree' {
 
         $result | Should -Be @(
             (Split-Path -Leaf $treeRoot)
-            '+-- alpha'
-            '+-- beta'
-            '+-- aardvark.log'
-            '\\-- zulu.log'
+            '├── alpha'
+            '├── beta'
+            '├── aardvark.log'
+            '└── zulu.log'
         )
     }
 
@@ -57,6 +57,20 @@ Describe 'Get-FileTree' {
             '├── beta'
             '├── aardvark.log'
             '└── zulu.log'
+        )
+    }
+
+    It 'supports ascii output explicitly' {
+        $result = Get-FileTree -Path $treeRoot -Depth 2 -Format Ascii
+
+        $result | Should -Be @(
+            (Split-Path -Leaf $treeRoot)
+            '+-- alpha'
+            '|   +-- inner'
+            '|   \-- note.txt'
+            '+-- beta'
+            '+-- aardvark.log'
+            '\-- zulu.log'
         )
     }
 

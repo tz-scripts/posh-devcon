@@ -11,6 +11,7 @@ function Add-TreeViewChildLine {
         [bool] $IncludeFiles,
 
         [Parameter(Mandatory)]
+        [AllowEmptyString()]
         [string] $Prefix,
 
         [Parameter(Mandatory)]

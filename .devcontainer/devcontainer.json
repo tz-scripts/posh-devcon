@@ -7,6 +7,7 @@
     "customizations": {
         "vscode": {
             "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
                 "powershell.powerShellDefaultVersion": "PowerShell (Core)",
                 "powershell.scriptAnalysis.enable": true,
                 "editor.formatOnSave": true,
@@ -22,4 +23,3 @@
     "postCreateCommand": "pwsh -NoLogo -NoProfile -File ./tools/Install-Dependencies.ps1",
     "remoteUser": "vscode"
 }
-

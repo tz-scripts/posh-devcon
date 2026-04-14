@@ -19,14 +19,14 @@ Describe 'Get-FolderTree' {
         Remove-Item -LiteralPath $treeRoot -Recurse -Force
     }
 
-    It 'lists only folders' {
+    It 'lists only folders using unicode by default' {
         $result = Get-FolderTree -Path $treeRoot -Depth 2
 
         $result | Should -Be @(
             (Split-Path -Leaf $treeRoot)
-            '+-- alpha'
-            '|   \\-- inner'
-            '\\-- beta'
+            '├── alpha'
+            '│   └── inner'
+            '└── beta'
         )
     }
 
@@ -46,6 +46,17 @@ Describe 'Get-FolderTree' {
             '├── alpha'
             '│   └── inner'
             '└── beta'
+        )
+    }
+
+    It 'supports ascii output explicitly' {
+        $result = Get-FolderTree -Path $treeRoot -Depth 2 -Format Ascii
+
+        $result | Should -Be @(
+            (Split-Path -Leaf $treeRoot)
+            '+-- alpha'
+            '|   \-- inner'
+            '\-- beta'
         )
     }
 
